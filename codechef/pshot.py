@@ -2,25 +2,22 @@ def main():
     t = int(input())
     for _ in range(t):
         n=int(input())
-        s=int(input())
-        score=list(map(int, str(s)))    
-        a=b=am=bm=0
+        s=input()
+        score=list(map(int,n))  
         count=0
-        for i in range(len(score)):
+        as=0
+        bs=0
+        for i in score:
             if i%2==0:
-                if score[i]==1:
-                    a+=1
-                else:
-                    am+=1
+                if i==1:
+                    as+=1
+                    if as==(2*n)-2:
+                        count=as
             else:
-                if score[i]==1:
-                    b+=1
-                else:
-                    bm+=1
-            if a>n-bm or b>n-am:
-                count=1
-                print(i+1)
-                break 
+                if i==1:
+                    bs+=1
+                    if bs==(2*n)-2:
+                        count=bs
         if count==0:
             print(2*n)
     return 0

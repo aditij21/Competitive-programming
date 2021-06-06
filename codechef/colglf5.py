@@ -4,25 +4,24 @@ def main():
         n,m=map(int,input().split())
         f=list(map(int, input().split()[:n]))
         c=list(map(int, input().split()[:m]))
-        op=0
-        s=[]
-        t=f+c
-        t.sort()
-        for i in t:
-            if i in f:
-                s.append("f")
-            else:
-                s.append("c")
-        temp="f"
-        for i in s:
-            if temp=="f":
-                if i=="c":
-                    op+=1
-                    temp="c"
-            else:
-                if i=="f":
-                    op+=1
-                    temp="f"
-        print(op)
+        f1 = []
+        for i in range(n):
+            f1.append([f[i], 0])
+        c1 = []
+        for i in range(m):
+            c1.append([c[i], 1])
+
+        allList = f1 + c1
+        allList.sort()
+
+        cnt = 0
+        flag = 0
+
+        for i in range(len(allList)):
+            if flag != allList[i][1]:
+                flag = allList[i][1]
+                cnt += 1
+
+        print(cnt)
     return 0
 main()
